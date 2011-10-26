@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>Machine Learning: Notes</title>
   <link rel="stylesheet" href="/css/app.css" type="text/css">
   <script type="text/javascript">
   MathJax.Hub.Config({
@@ -30,7 +31,7 @@ These notes are updated as the course progresses.
   
   
       <div class="figure">
-        <p>      <img style="margin-bottom:20px;" alt="sigmoid function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/320px-Logistic-curve.svg.png" width="320" height="213">    
+        <p>      <img style="margin-bottom:20px;" alt="sigmoid function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/320px-Logistic-curve.svg.png" width="240">    
         <p>Plot of \(g(z)\)
       </div>
   <p>
@@ -66,14 +67,58 @@ These notes are updated as the course progresses.
   </p>
   
   <h3>Decision Boundary</h3>
-
 	<p>
     \(g(z) \ge 0.5\) when \(z \ge 0 \)
 	</p>
 	<p>
    since \(h_\theta(x) = g(\theta^T x)\), then \(g(\theta^T x) \ge 0.5\)  when \(\theta^T x \ge 0 \)
 	</p>
+	<ul>
+	  <li>Suppose predict \(y=1\) if \(h_\theta(x) \ge 0.5 \) and \(y=0\) if \(h_\theta(x) \lt 0.5 \)</li>
+	  <li>\(y=1\) when \(\theta^T x \ge 0\)</li>
+	  <li>  The decision boundary is a property of the hypothesis and it's parameters, not the dataset.</li>
+	</ul>
 	
+  <h3>Logistic Regression Cost Function</h3>
+  <p>
+    $$
+    \begin{eqnarray}
+      J(\theta) &=& \frac{1}{m}\sum_{i=1}^m{\text{Cost}(h_\theta(x^{(i)}),y^{(i)})} \\
+      \text{Cost}(h_\theta(x), y)&=&\begin{cases}
+        -\log(h_\theta(x)), & \text{if $y=1$}.\\
+        -\log(1 - h_\theta(x)), & \text{if $y=0$}.
+      \end{cases}
+    \end{eqnarray}
+    $$
+    <ul>
+      <li>Note: \(y=0\) or 1 always</li>
+      <li>if \(y = 1\), as \(h_\theta(x) \rightarrow 1\), Cost \(\rightarrow 0\)<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and as \(h_\theta(x) \rightarrow 0\), Cost \(\rightarrow \infty\)<br />
+      so if \(y = h_\theta(x) \), Cost will be 0 for \(y = 1\) or \(y = 0\)</li>
+    </ul>
+  </p>
+  
+  
+  <h3>Simplified Cost Function and Gradient Decent</h3> 
+  <p>The cost function can be simplified to the following form</p> 
+  <p>
+    
+    $$  \text{Cost}(h_\theta(x), y) = -y\log(h_\theta(x)) - (1-y)\log(1-h_\theta(x)) $$
+  </p>
+  <p>This compaction comes from statistics: the principle of maximum likelihood estimation</p>
+<p>
+  Finally, plugging this back into our cost function for logistic regression we arrive at
+  </p>
+  <p>
+      $$ J(\theta) = -\frac{1}{m}\bigg[
+      \sum_{i=1}^m{y^{(i)}\log(h_\theta(x^{(i)})) - (1-y^{(i)})\log(1-h_\theta(x^{(i)}))}
+      \bigg] 
+      $$
+  </p>
+  <p>
+  </p>
+  
+  
 	</div>
 </body>
 </html>
