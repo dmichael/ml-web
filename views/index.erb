@@ -107,7 +107,7 @@ These notes are updated as the course progresses.
   </p>
   <p>This compaction comes from statistics: the principle of maximum likelihood estimation</p>
 <p>
-  Finally, plugging this back into our cost function for logistic regression we arrive at
+  Finally, plugging this back in we arrive at our <b>simplified cost function for logistic regression</b>
   </p>
   <p>
       $$ J(\theta) = -\frac{1}{m}\bigg[
@@ -116,6 +116,16 @@ These notes are updated as the course progresses.
       $$
   </p>
   <p>
+    In order to minimize the value of \(J(\theta)\) for <i>logistic regression</i> we also use <i>gradient descent</i>. It turns out that the algorithm looks identical to that used for <i>linear regression</i>! The difference is in the value at \(h_\theta(x)\), which for logistic regression is \(    h_\theta(x) = { \frac{1}{1 + e^{-\theta^T x}} }  \). For completeness,  <b>gradient descent for logistic regression</b> is as follows:
+    
+    $$
+    \begin{eqnarray}
+      \theta_j &:=& \theta_j - \alpha \frac{\partial}{\partial\theta_j} J(\theta) \\
+      \text{which simplifies to}\\
+      \theta_j &:=& \theta_j - \alpha \sum_{i=1}^m{ (h_\theta(x^{(i)}) - y^{(i)}) x_j^{(i)} }
+      \end{eqnarray}
+    $$
+    
   </p>
   
   
