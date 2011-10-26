@@ -1,0 +1,102 @@
+<html>
+<head>
+  <style>
+    h1, h2, h3, h4, h5, h6 {
+      font-family:arial, sans-serif;
+    }
+    body{
+      font-size:1.1em;
+    }
+    p{
+     margin-left:20px; 
+    }
+    div#content{
+      max-width:700px;
+    }
+    div.figure {
+      float: right;
+      border: thin silver solid;
+      margin: 0.5em;
+      padding: 0em;
+    }
+    div.figure p {
+      margin:0 0 10px 0;
+      text-align: center;
+      font-style: italic;
+      font-size: smaller;
+      text-indent: 0;
+    }
+  </style>
+  <script type="text/javascript">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+  </script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+</head>
+<body>
+  <div id="content">
+	<h1>Machine Learning</h1>
+	<p>Notes to </p>
+	<h2>Logistic Regression</h2>
+	<p>
+	  Classification algorithm used for prediction of the probability of occurrence of an event by fitting data to a logit function logistic curve.
+	</p>
+	<h3>Hypothesis Representation</h3>
+	  <p>
+	  In logistic regression, we want the hypothesis to be <script type="math/tex">0 \le h_\theta(x) \le 1 </script>  
+    </p> 
+  
+  
+      <div class="figure">
+        <p>      <img style="margin-bottom:20px;" alt="sigmoid function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/320px-Logistic-curve.svg.png" width="320" height="213">    
+        <p>Plot of \(g(z)\)
+      </div>
+  <p>
+      For this, we use the <i>Sigmoid or Logistic Function</i>
+      
+    
+      <br />
+            <br />
+    <script type="math/tex">
+    \begin{eqnarray}
+    g(z) &=& { \frac{1}{1 + e^{-z}} } \\
+    h_\theta(x) &=& g(\theta^T x)  \\\\
+
+    h_\theta(x) &=& { \frac{1}{1 + e^{-\theta^T x}} } 
+    \end{eqnarray}  
+  </script>
+  </p>
+      <div style="clear:both;" />
+	<h3>Interpretation of Hypothesis Output</h3>
+	<p>
+    \(h_\theta(x) =\) estimated probability that \(y = 1\) on input \(x\)
+	</p>
+	<p>
+    \(h_\theta(x) = P(y=1|x;\theta)\)
+  </p>
+  <p>
+    <script type="math/tex">
+    \begin{eqnarray}
+    P(y=1|x;\theta) + P(y=0|x;\theta) &=& 1 \\  
+    P(y=0|x;\theta) &=& 1 - P(y=1|x;\theta)
+    \end{eqnarray}
+    </script>
+  </p>
+  
+  <h3>Decision Boundary</h3>
+
+	<p>
+    \(g(z) \ge 0.5\) when \(z \ge 0 \)
+	</p>
+	<p>
+   since \(h_\theta(x) = g(\theta^T x)\), then \(g(\theta^T x) \ge 0.5\)  when \(\theta^T x \ge 0 \)
+	</p>
+	
+	</div>
+</body>
+</html>
