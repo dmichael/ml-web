@@ -20,13 +20,20 @@
 	  <br />
 These notes are updated as the course progresses.
 	  </p>
+  	<h2>II. Linear Regression with One Variable</h2>
+  	<h2>III. Linear Algebra</h2>
+  	<h2>IV. Linear Regression with Multiple Variables</h2>
+
+
+
 	<h2>VI. Logistic Regression</h2>
 	<p>
 	  Classification algorithm used for prediction of the probability of occurrence of an event by fitting data to a logit function logistic curve.
 	</p>
 	<h3>Hypothesis Representation</h3>
 	  <p>
-	  In logistic regression, we want the hypothesis to be <script type="math/tex">0 \le h_\theta(x) \le 1 </script>  
+	  In logistic regression, we want the hypothesis to be <script type="math/tex">0 \le h_\theta(x) \le 1 </script>. <br />
+	  For this, we use the <i>Sigmoid or Logistic Function</i>  
     </p> 
   
   
@@ -34,22 +41,26 @@ These notes are updated as the course progresses.
         <p>      <img style="margin-bottom:20px;" alt="sigmoid function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Logistic-curve.svg/320px-Logistic-curve.svg.png" width="240">    
         <p>Plot of \(g(z)\)
       </div>
+  
   <p>
-      For this, we use the <i>Sigmoid or Logistic Function</i>
       
-    
-      <br />
-            <br />
-    <script type="math/tex">
+  
+    $$
     \begin{eqnarray}
     g(z) &=& { \frac{1}{1 + e^{-z}} } \\
     h_\theta(x) &=& g(\theta^T x)  \\\\
 
     h_\theta(x) &=& { \frac{1}{1 + e^{-\theta^T x}} } 
     \end{eqnarray}  
-  </script>
+    $$
   </p>
+  <div style="clear:both;" />
+  <p>In Octave it looks something like the following</p>
+  <script src="https://gist.github.com/1329789.js?file=gistfile1.matlab"></script>
       <div style="clear:both;" />
+  
+  
+  
 	<h3>Interpretation of Hypothesis Output</h3>
 	<p>
     \(h_\theta(x) =\) estimated probability that \(y = 1\) on input \(x\)
@@ -117,7 +128,14 @@ These notes are updated as the course progresses.
       \sum_{i=1}^m{y^{(i)}\log(h_\theta(x^{(i)})) - (1-y^{(i)})\log(1-h_\theta(x^{(i)}))}
       \bigg] 
       $$
+      
+      and the gradient of the cost is a vector θ where the jth element (for j = 0,1,...,n) is defined as follows:
+      
+      $$
+        \frac{\partial J(\theta)}{\partial\theta_j} = \frac{1}{m} \sum_{i=1}^m{y^{(i)}}(h_\theta(x^{(i)})-y^{(i)}) x_j^{(i)}
+      $$
   </p>
+
   <p>
     In order to minimize the value of \(J(\theta)\) for <i>logistic regression</i> we also use <i>gradient descent</i>. It turns out that the algorithm looks identical to that used for <i>linear regression</i>! The difference is in the value at \(h_\theta(x)\), which for logistic regression is \(    h_\theta(x) = { \frac{1}{1 + e^{-\theta^T x}} }  \). For completeness,  <b>gradient descent for logistic regression</b> is as follows:
     
@@ -130,7 +148,12 @@ These notes are updated as the course progresses.
     $$
     
   </p>
-  
+  <p>
+    In Octave, this equation looks like this
+    <script src="https://gist.github.com/1329765.js?file=gistfile1.matlab"></script>
+  </p>
+  <!-- REGULARIZATION -->
+  <h2>VII. Regularization</h2>
   
 	</div>
 </body>

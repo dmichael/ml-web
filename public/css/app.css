@@ -1,14 +1,25 @@
 h1, h2, h3, h4, h5, h6 {
-font-family:arial, sans-serif;
+  font-family:arial, sans-serif;
+  text-decoration:underline;
+  width:100%;
 }
+
+h2, h3, h4, h5, h6 {
+  margin-top:35px;
+}
+
 body{
-font-size:1.1em;
+  font-size:1.1em;
 }
-p{
+
+p, div.gist{
 margin-left:20px; 
 }
+div.gist{
+	font-size:0.9em;
+}
 div#content{
-max-width:700px;
+max-width:750px;
 }
 div.figure {
 float: right;
