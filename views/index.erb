@@ -152,8 +152,45 @@ These notes are updated as the course progresses.
     In Octave, this equation looks like this
     <script src="https://gist.github.com/1329765.js?file=gistfile1.matlab"></script>
   </p>
+  
+  <h3>Advanced Optimization</h3>
+  
+  
+  
   <!-- REGULARIZATION -->
   <h2>VII. Regularization</h2>
+  
+  
+  
+  <!-- REGULARIZATION -->
+  <h2>VIII. Neural Networks</h2>
+  <p>
+    Neural networks are classifiers that produce complex non-linear decision boundaries.
+  </p>
+
+    <img style="margin-bottom:20px;" alt="sigmoid function" src="images/neural_network.png" width="480">    
+
+  <div style="clear:both;" />
+
+  <p>
+
+    <script type="math/tex">a_i^{(j)}</script> = "activation" of unit i in layer j<br />
+    <script type="math/tex">\Theta^{(j)}</script> = matrix of weights controlling function mapping from layer j to layer j + 1
+    
+  </p>
+  <p>
+    <script type="math/tex">
+      \begin{eqnarray}
+        a_1^{(2)} &=& g(\Theta_{10}^{(1)} x_0 + \Theta_{11}^{(1)} x_1 + \Theta_{12}^{(1)} x_2 + \Theta_{13}^{(1)} x_3)\\
+        a_2^{(2)} &=& g(\Theta_{20}^{(1)} x_0 + \Theta_{21}^{(1)} x_1 + \Theta_{22}^{(1)} x_2 + \Theta_{23}^{(1)} x_3)\\
+        a_3^{(2)} &=& g(\Theta_{30}^{(1)} x_0 + \Theta_{31}^{(1)} x_1 + \Theta_{32}^{(1)} x_2 + \Theta_{33}^{(1)} x_3)  \\      
+        h_{\Theta}(x) &=& a_1^{(3)} = g(\Theta_{10}^{(2)} a_0^{(2)} + \Theta_{11}^{(2)} a_1^{(2)} + \Theta_{12}^{(2)} a_2^{(2)} + \Theta_{13}^{(2)} a_3^{(2)})        
+      \end{eqnarray}
+    </script>
+  </p>
+  <p>
+    If network has \(s_j\) units in layer \(j\), \(s_{j+1}\) units in layer \(j + 1\), then \(\Theta^{(j)}\) will be of dimension \(s_{j+1} \text{x} (s_j + 1)\)
+  </p>
   
 	</div>
 </body>
